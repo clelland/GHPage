@@ -14,7 +14,7 @@
   "display": "fullscreen",
   "orientation": "portrait",
   "service_worker": {
-    "src": "js/sw.js",
+    "src": "sw.js",
     "scope": "/GHPage/apptest"
   }
 }
