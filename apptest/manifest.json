@@ -15,6 +15,6 @@
   "orientation": "portrait",
   "service_worker": {
     "src": "js/sw.js",
-    "scope": "/apptest"
+    "scope": "/GHPage/apptest"
   }
 }
