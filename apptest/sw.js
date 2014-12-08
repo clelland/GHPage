@@ -16,3 +16,16 @@ self.addEventListener('install', function(ev) {
     })
   );
 });
+
+self.addEventListener('fetch', function(ev) {
+  ev.respondWith(
+    caches.match(ev.request).then(function(response) {
+      if (response) {
+        console.log("Returning " + ev.request.url + " from cache");
+        return response;
+      }
+      console.log("Fetching " + ev.request.url + " from network");
+      return fetch(ev.request);
+    })
+  );
+});
