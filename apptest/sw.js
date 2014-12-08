@@ -5,7 +5,7 @@ self.addEventListener('install', function(ev) {
     caches.open('packaged-assets-1.0.0').then(function(cache) {
       console.log("Cache opened!");
       var r = cache.addAll(
-        ['/index.html',
+        ['index.html',
          'cordova.js',
          'img/logo.png',
          'js/index.js',
