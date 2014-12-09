@@ -1,18 +1,20 @@
+APP_VERSION = '1.0.0';
+PACKAGED_ASSETS = [
+  'index.html',
+  'cordova.js',
+  'img/logo.png',
+  'js/index.js',
+  'css/index.css',
+];
+CACHE_NAME = 'packaged-assets-' + APP_VERSION;
+
 importScripts('serviceworker-cache-polyfill.js');
 
 self.addEventListener('install', function(ev) {
   ev.waitUntil(
-    caches.open('packaged-assets-1.0.0').then(function(cache) {
+    caches.open(CACHE_NAME).then(function(cache) {
       console.log("Cache opened!");
-      var r = cache.addAll(
-        ['index.html',
-         'cordova.js',
-         'img/logo.png',
-         'js/index.js',
-         'css/index.css',
-        ]
-      );
-      return r;
+      return cache.addAll(PACKAGED_ASSETS);
     })
   );
 });
