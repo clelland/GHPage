@@ -1,4 +1,4 @@
-APP_VERSION = '1.0.0';
+APP_VERSION = '1.0.1';
 PACKAGED_ASSETS = [
   'index.html',
   'cordova.js',
@@ -6,7 +6,8 @@ PACKAGED_ASSETS = [
   'js/index.js',
   'css/index.css',
 ];
-CACHE_NAME = 'packaged-assets-' + APP_VERSION;
+CACHE_PREFIX = 'packaged-assets-';
+CACHE_NAME = CACHE_PREFIX + APP_VERSION;
 
 importScripts('serviceworker-cache-polyfill.js');
 
@@ -15,6 +16,21 @@ self.addEventListener('install', function(ev) {
     caches.open(CACHE_NAME).then(function(cache) {
       console.log("Cache opened!");
       return cache.addAll(PACKAGED_ASSETS);
+    })
+  );
+});
+
+self.addEventListener('activate', function(ev) {
+  ev.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          return (cacheName.substring(0,CACHE_PREFIX.length) == CACHE_PREFIX) && (cacheName != CACHE_NAME);
+        }).map(function(cacheName) {
+          console.log("Deleting old cache: " + cacheName);
+          return caches.delete(cacheName);
+        })
+      );
     })
   );
 });
