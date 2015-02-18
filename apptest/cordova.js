@@ -1,3 +1,4 @@
+function registerServiceWorker() {
 // Register Service Worker
 if (navigator.serviceWorker) {
   navigator.serviceWorker.register('sw.js',{scope:'/GHPage/apptest/'}).then(function(registration) {
@@ -8,4 +9,6 @@ if (navigator.serviceWorker) {
     // registration failed :(
     console.log('ServiceWorker registration failed: ', err);
   });
+}
+
 }
