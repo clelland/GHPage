@@ -49,3 +49,4 @@ var app = {
 };
 
 app.initialize();
+navigator.serviceWorker.ready.then(function(reg) { swreg = reg; console.log("Service WOorker Ready",reg); });
