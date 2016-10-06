@@ -8,10 +8,17 @@
 <script>
 var a = document.createElement("p");
 if (navigator.bluetooth) {
-  a.innerHTML = "YES it has a bluetooth";
+  a.innerHTML = "YES navigator has a bluetooth";
 } else {
-  a.innerHTML = "NO you took away my bluetooth";
+  a.innerHTML = "NO you took away my navigator.bluetooth";
+}
+var b = document.createElement("p");
+if (window.BluetoothDevice) {
+  b.innerHTML = "YES window has a BluetoothDevice";
+} else {
+  b.innerHTML = "NO you took away window.BluetoothDevice";
 }
 document.body.appendChild(a);
+document.body.appendChild(b);
 </script>
-<a href="index2.html">Try without</a>
+<a href="index2.html">Try without a token</a>
