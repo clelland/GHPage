@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- DO NOT SUBMIT: Fix Page Title. Missing tags? http://go/optional-html -->
+<title>Origin Trial Test</title>
+<body>
+<h1>Origin Trial Test</h1>
+<script>
+var a = document.createElement("p");
+if (navigator.getVRDisplays) {
+  a.innerHTML = "YES i has a VR";
+} else {
+  a.innerHTML = "NO you took away my VR";
+}
+document.body.appendChild(a);
+var b = document.createElement("p");
+if (window.VRDisplay) {
+  b.innerHTML = "YES i has a VRDisplay";
+} else {
+  b.innerHTML = "NO you took away my VRDisplay";
+}
+document.body.appendChild(b);
+</script>
+<a href="index.html">Try with a token</a>
