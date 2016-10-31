@@ -6,18 +6,19 @@
 <h1>Origin Trial Test</h1>
 <script>
 var a = document.createElement("p");
-if (navigator.bluetooth) {
-  a.innerHTML = "YES navigator has a bluetooth";
+if (navigator.usb) {
+  a.innerHTML = "YES navigator has a usb";
 } else {
-  a.innerHTML = "NO you took away my navigator.bluetooth";
+  a.innerHTML = "NO you took away my navigator.usb";
 }
 var b = document.createElement("p");
-if (window.BluetoothDevice) {
-  b.innerHTML = "YES window has a BluetoothDevice";
+if (window.USBDevice) {
+  b.innerHTML = "YES window has a USBDevice";
 } else {
-  b.innerHTML = "NO you took away window.BluetoothDevice";
+  b.innerHTML = "NO you took away window.USBDevice";
 }
 document.body.appendChild(a);
 document.body.appendChild(b);
 </script>
-<a href="index.html">Try with a token</a>
+<a href="index-header.php">Try with an HTTP header</a>
+<a href="index.html">Try with a meta tag</a>
