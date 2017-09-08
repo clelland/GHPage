@@ -3,6 +3,7 @@
 <title>Feature Policy Web Bluetooth Test</title>
 <body>
 <h1>Feature Policy Web Bluetooth Test</h1>
+<button id="try">Try Requesting Devices</button>
 <script>
 var a = document.createElement("p");
 if (navigator.bluetooth) {
@@ -11,4 +12,10 @@ if (navigator.bluetooth) {
   a.innerHTML = "NO you took away my navigator.bluetooth";
 }
 document.body.appendChild(a);
+
+function tryBluetooth() {
+  navigator.bluetooth.requestDevice({acceptAllDevices:true});
+}
+
+document.getElementById("try").addEventListener('click', tryBluetooth);
 </script>
