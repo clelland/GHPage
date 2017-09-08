@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Feature Policy Web Bluetooth Test</title>
+<body>
+<h1>Feature Policy Web Bluetooth Test</h1>
+<script>
+var a = document.createElement("p");
+if (navigator.bluetooth) {
+  a.innerHTML = "YES navigator has a bluetooth";
+} else {
+  a.innerHTML = "NO you took away my navigator.bluetooth";
+}
+document.body.appendChild(a);
+</script>
